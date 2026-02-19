@@ -1,9 +1,9 @@
-package org.lushplugins.projectname;
+package org.lushplugins.regrowthdiscordwebhooks;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class ProjectName extends JavaPlugin {
-    private static ProjectName plugin;
+public final class RegrowthDiscordWebhooks extends JavaPlugin {
+    private static RegrowthDiscordWebhooks plugin;
 
     @Override
     public void onLoad() {
@@ -20,7 +20,7 @@ public final class ProjectName extends JavaPlugin {
         // Disable implementation
     }
 
-    public static ProjectName getInstance() {
+    public static RegrowthDiscordWebhooks getInstance() {
         return plugin;
     }
 }
