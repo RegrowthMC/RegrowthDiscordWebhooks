@@ -1,6 +1,7 @@
 package org.lushplugins.regrowthdiscordwebhooks.config;
 
 import io.github._4drian3d.jdwebhooks.component.Component;
+import io.github._4drian3d.jdwebhooks.component.ContainerComponent;
 import io.github._4drian3d.jdwebhooks.component.TextDisplayComponent;
 import io.github._4drian3d.jdwebhooks.media.FileAttachment;
 import io.github._4drian3d.jdwebhooks.webhook.WebHookExecution;
@@ -24,6 +25,20 @@ public record MessageWrapper(
             .map(component -> {
                 if (component instanceof TextDisplayComponent textComponent) {
                     return Component.textDisplay(parsers.parse(textComponent.content()));
+                } else if (component instanceof ContainerComponent container) {
+                    return Component.container()
+                        .components(container.components().stream()
+                            .map(containerComponent -> {
+                                if (containerComponent instanceof TextDisplayComponent containerTextComponent) {
+                                    return Component.textDisplay(parsers.parse(containerTextComponent.content()));
+                                } else {
+                                    return containerComponent;
+                                }
+                            })
+                            .toList())
+                        .accentColor(container.accentColor())
+                        .spoiler(container.spoiler())
+                        .build();
                 } else {
                     return component;
                 }
