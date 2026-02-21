@@ -86,7 +86,7 @@ public class WebHookComponent {
                     .spacing(spacing)
                     .build();
             }
-            case "container", "embed" -> {
+            case "container" -> {
                 List<ContainerableComponent> components = YamlUtils.getConfigurationSections(config, "components").stream()
                     .map(section -> read(section) instanceof ContainerableComponent component ? component : null)
                     .filter(Objects::nonNull)
