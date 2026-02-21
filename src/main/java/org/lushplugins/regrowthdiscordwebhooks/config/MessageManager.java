@@ -2,7 +2,6 @@ package org.lushplugins.regrowthdiscordwebhooks.config;
 
 import io.github._4drian3d.jdwebhooks.component.Component;
 import io.github._4drian3d.jdwebhooks.media.FileAttachment;
-import io.github._4drian3d.jdwebhooks.webhook.WebHookExecution;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.lushplugins.lushlib.utils.YamlUtils;
@@ -55,14 +54,14 @@ public class MessageManager {
 
                     return new WebHookWrapper(
                         webhookUrl,
-                        WebHookExecution.builder()
-                            .username(username)
-                            .avatarURL(avatarUrl)
-                            .tts(tts)
-                            .suppressNotifications(suppressNotifications)
-                            .components(components)
-                            .fileAttachments(attachments)
-                            .build()
+                        new MessageWrapper(
+                            username,
+                            avatarUrl,
+                            tts,
+                            suppressNotifications,
+                            components,
+                            attachments
+                        )
                     );
                 }
             ));

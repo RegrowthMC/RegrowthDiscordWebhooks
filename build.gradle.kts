@@ -20,6 +20,7 @@ dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.7-R0.1-SNAPSHOT")
 
     // Soft Dependencies
+    compileOnly("me.clip:placeholderapi:2.11.5")
 
     // Libraries
     implementation("io.github.4drian3d:jdwebhooks:2.0.0")

@@ -3,7 +3,6 @@ package org.lushplugins.regrowthdiscordwebhooks.config;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import io.github._4drian3d.jdwebhooks.webhook.WebHookClient;
-import io.github._4drian3d.jdwebhooks.webhook.WebHookExecution;
 
 import java.net.http.HttpResponse;
 import java.util.concurrent.CompletableFuture;
@@ -12,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 public record WebHookWrapper(
     String webHookUrl,
-    WebHookExecution execution
+    MessageWrapper message
 ) {
     private static final Cache<String, WebHookClient> CLIENTS_CACHE = CacheBuilder.newBuilder()
         .expireAfterAccess(1, TimeUnit.MINUTES)
@@ -27,6 +26,6 @@ public record WebHookWrapper(
     }
 
     public CompletableFuture<HttpResponse<String>> send() {
-        return this.client().executeWebHook(this.execution);
+        return this.client().executeWebHook(this.message.prepareExecution());
     }
 }

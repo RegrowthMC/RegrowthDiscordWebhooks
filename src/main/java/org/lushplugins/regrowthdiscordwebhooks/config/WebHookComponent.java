@@ -1,7 +1,6 @@
 package org.lushplugins.regrowthdiscordwebhooks.config;
 
 import io.github._4drian3d.jdwebhooks.component.*;
-import io.github._4drian3d.jdwebhooks.media.FileAttachment;
 import io.github._4drian3d.jdwebhooks.media.URLMediaReference;
 import org.bukkit.configuration.ConfigurationSection;
 import org.lushplugins.lushlib.utils.YamlUtils;
@@ -91,14 +90,18 @@ public class WebHookComponent {
                     .map(section -> read(section) instanceof ContainerableComponent component ? component : null)
                     .filter(Objects::nonNull)
                     .toList();
-                int accentColor;
-                if (config.isString("accent-color")) {
+
+                Integer accentColor;
+                if (config.isInt("accent-color")) {
+                    accentColor = config.getInt("accent-color");
+                } else if (config.isString("accent-color")){
                     String hex = config.getString("accent-color", "#000000")
                         .replace("#", "");
                     accentColor = Integer.parseInt(hex, 16);
                 } else {
-                    accentColor = config.getInt("accent-color");
+                    accentColor = null;
                 }
+
                 boolean spoiler = config.getBoolean("spoiler");
 
                 yield Component.container()
