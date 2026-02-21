@@ -9,7 +9,6 @@ messages:
     username: "Example WebHook"
     avatar-url: URL_HERE
     tts: false
-    thread-name: "Thread Name"
     suppress-notifs: false
     components:
       - content: "Example"
