@@ -1,5 +1,5 @@
-name: RegrowthDiscordWebhooks
+name: RegrowthDiscordWebHooks
 version: ${project.version}
-main: org.lushplugins.regrowthdiscordwebhooks.RegrowthDiscordWebhooks
+main: org.lushplugins.regrowthdiscordwebhooks.RegrowthDiscordWebHooks
 api-version: '1.21'
 github-repo: RegrowthMC/RegrowthDiscordWebhooks

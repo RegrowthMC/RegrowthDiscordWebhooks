@@ -1,0 +1,40 @@
+webhook:
+  webhook-url: URL_HERE
+  username: "Example Username"
+  avatar-url: URL_HERE
+
+messages:
+  example_1:
+    webhook-url: URL_HERE
+    username: "Example WebHook"
+    avatar-url: URL_HERE
+    tts: false
+    thread-name: "Thread Name"
+    suppress-notifs: false
+    components:
+      - content: "Example"
+      - type: section
+        accessory:
+          url: "https://github.com/RegrowthMC/RegrowthAssets/blob/main/assets/images/pinata_party_event.png?raw=true"
+          description: "Pinata Party"
+          spoiler: true
+        components:
+          - "Example Section"
+      - type: media-gallery
+        media:
+          - url: "https://github.com/RegrowthMC/RegrowthAssets/blob/main/assets/images/pinata_party_event.png?raw=true"
+            description: "Pinata Party"
+            spoiler: true
+      - type: file
+        file: "example.txt"
+        spoiler: true
+      - type: separator
+        divider: true
+        spacing: "small"
+      - type: container
+        components:
+          - content: "Example container"
+        accent-color: "#ffabf1"
+        spoiler: false
+    attachments:
+      - "example.txt"
