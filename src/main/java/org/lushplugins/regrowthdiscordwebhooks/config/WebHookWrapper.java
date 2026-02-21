@@ -10,6 +10,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 public record WebHookWrapper(
+    String id,
     String webHookUrl,
     MessageWrapper message
 ) {

@@ -12,6 +12,7 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class MessageManager {
@@ -22,6 +23,14 @@ public class MessageManager {
             RegrowthDiscordWebHooks.getInstance().saveDefaultResource("messages/example.yml");
             RegrowthDiscordWebHooks.getInstance().saveDefaultResource("attachments/example.txt");
         }
+    }
+
+    public WebHookWrapper getMessage(String id) {
+        return messages.get(id);
+    }
+
+    public Set<String> getMessageIds() {
+        return messages.keySet();
     }
 
     public void reload() {
@@ -53,6 +62,7 @@ public class MessageManager {
                         .toList();
 
                     return new WebHookWrapper(
+                        section.getName(),
                         webhookUrl,
                         new MessageWrapper(
                             username,
@@ -74,9 +84,5 @@ public class MessageManager {
                 map.putAll(toMerge);
                 return map;
             });
-    }
-
-    public WebHookWrapper getMessage(String id) {
-        return messages.get(id);
     }
 }

@@ -3,6 +3,7 @@ package org.lushplugins.regrowthdiscordwebhooks;
 import org.lushplugins.lushlib.plugin.SpigotPlugin;
 import org.lushplugins.regrowthdiscordwebhooks.command.DiscordWebHooksCommand;
 import org.lushplugins.regrowthdiscordwebhooks.config.MessageManager;
+import org.lushplugins.regrowthdiscordwebhooks.config.WebHookWrapper;
 import org.lushplugins.regrowthdiscordwebhooks.parser.ParserList;
 import org.lushplugins.regrowthdiscordwebhooks.parser.PlaceholderAPIParser;
 import revxrsal.commands.bukkit.BukkitLamp;
@@ -27,6 +28,14 @@ public final class RegrowthDiscordWebHooks extends SpigotPlugin {
         ifPluginPresent("PlaceholderAPI", () -> this.parsers.add(new PlaceholderAPIParser()));
 
         BukkitLamp.builder(this)
+            .suggestionProviders(suggestionProviders -> suggestionProviders
+                .addProvider(WebHookWrapper.class, (context) -> {
+                    return RegrowthDiscordWebHooks.getInstance().getMessageManager().getMessageIds();
+                }))
+            .parameterTypes(parameterTypes -> parameterTypes
+                .addParameterType(WebHookWrapper.class, (input, context) -> {
+                    return RegrowthDiscordWebHooks.getInstance().getMessageManager().getMessage(input.readString());
+                }))
             .build()
             .register(new DiscordWebHooksCommand());
     }
