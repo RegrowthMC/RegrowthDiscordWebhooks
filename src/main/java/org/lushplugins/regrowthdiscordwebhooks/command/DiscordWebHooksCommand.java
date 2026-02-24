@@ -10,7 +10,7 @@ import revxrsal.commands.annotation.Subcommand;
 import revxrsal.commands.bukkit.annotation.CommandPermission;
 
 @SuppressWarnings("unused")
-@Command("discordwebhook")
+@Command({"discordwebhook", "discordwebhooks"})
 public class DiscordWebHooksCommand {
 
     @Subcommand("send")
