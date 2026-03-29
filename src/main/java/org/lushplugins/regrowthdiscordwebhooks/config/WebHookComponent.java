@@ -3,7 +3,7 @@ package org.lushplugins.regrowthdiscordwebhooks.config;
 import io.github._4drian3d.jdwebhooks.component.*;
 import io.github._4drian3d.jdwebhooks.media.URLMediaReference;
 import org.bukkit.configuration.ConfigurationSection;
-import org.lushplugins.lushlib.utils.YamlUtils;
+import org.lushplugins.lushlib.config.YamlUtils;
 import org.lushplugins.regrowthdiscordwebhooks.RegrowthDiscordWebHooks;
 
 import java.nio.file.Path;
