@@ -1,6 +1,6 @@
 package org.lushplugins.regrowthdiscordwebhooks;
 
-import org.lushplugins.lushlib.plugin.SpigotPlugin;
+import org.lushplugins.lushlib.utils.plugin.SpigotPlugin;
 import org.lushplugins.regrowthdiscordwebhooks.command.DiscordWebHooksCommand;
 import org.lushplugins.regrowthdiscordwebhooks.config.MessageManager;
 import org.lushplugins.regrowthdiscordwebhooks.config.WebHookWrapper;

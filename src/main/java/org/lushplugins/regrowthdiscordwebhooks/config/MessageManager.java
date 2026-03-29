@@ -4,7 +4,7 @@ import io.github._4drian3d.jdwebhooks.component.Component;
 import io.github._4drian3d.jdwebhooks.media.FileAttachment;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.lushplugins.lushlib.utils.YamlUtils;
+import org.lushplugins.lushlib.config.YamlUtils;
 import org.lushplugins.regrowthdiscordwebhooks.RegrowthDiscordWebHooks;
 
 import java.io.File;
