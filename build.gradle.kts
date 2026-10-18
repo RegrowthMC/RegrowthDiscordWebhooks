@@ -67,9 +67,9 @@ tasks {
         minecraftVersion("1.21.11")
 
         downloadPlugins {
+            modrinth("viaversion", "5.12.1")
+            modrinth("viabackwards", "5.12.1")
             hangar("PlaceholderAPI", "2.11.6")
-            modrinth("viaversion", "5.7.1")
-            modrinth("viabackwards", "5.7.1")
         }
     }
 }

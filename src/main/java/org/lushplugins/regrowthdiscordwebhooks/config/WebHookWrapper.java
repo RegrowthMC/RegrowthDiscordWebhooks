@@ -5,6 +5,8 @@ import com.google.common.cache.CacheBuilder;
 import io.github._4drian3d.jdwebhooks.webhook.WebHookClient;
 
 import java.net.http.HttpResponse;
+import java.util.Collections;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
@@ -26,7 +28,11 @@ public record WebHookWrapper(
         }
     }
 
+    public CompletableFuture<HttpResponse<String>> send(Map<String, String> replacements) {
+        return this.client().executeWebHook(this.message.prepareExecution(replacements));
+    }
+
     public CompletableFuture<HttpResponse<String>> send() {
-        return this.client().executeWebHook(this.message.prepareExecution());
+        return send(Collections.emptyMap());
     }
 }
